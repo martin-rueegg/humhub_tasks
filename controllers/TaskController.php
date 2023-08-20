@@ -2,16 +2,16 @@
 
 namespace humhub\modules\tasks\controllers;
 
-use humhub\modules\stream\actions\StreamEntryResponse;
-use humhub\modules\tasks\helpers\TaskUrl;
-use humhub\modules\user\models\User;
 use humhub\modules\content\components\ContentContainerControllerAccess;
 use humhub\modules\space\models\Space;
+use humhub\modules\stream\actions\StreamEntryResponse;
+use humhub\modules\tasks\helpers\TaskUrl;
 use humhub\modules\tasks\models\forms\ItemDrop;
 use humhub\modules\tasks\models\forms\TaskForm;
+use humhub\modules\tasks\models\Task;
+use humhub\modules\user\models\User;
 use humhub\modules\user\models\UserPicker;
 use humhub\widgets\ModalClose;
-use humhub\modules\tasks\models\Task;
 use Yii;
 use yii\web\HttpException;
 use yii\web\Response;

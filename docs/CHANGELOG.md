@@ -1,6 +1,15 @@
 Changelog
 =========
 
+1.8.1 (May 1, 2023)
+-------------------
+- Fix #230: Hard delete tasks on disable module
+
+1.8.0 (April 28, 2023)
+----------------------
+- Enh #225: Guest Mode - Do not show TopMenu Entry
+- Enh #226: Removed unnecessary call of prepareRequestParams method from Rest Module
+- Enh #228: Added support for hidden tasks in stream
 
 1.7.2 (December 23, 2022)
 -------------------------

@@ -36,7 +36,7 @@
 
                 <?= $content; ?>
 
-                <br> <?php echo humhub\widgets\TimeAgo::widget(['timestamp' => $record->created_at]); ?> 
+                <br> <?php echo humhub\widgets\TimeAgo::widget(['timestamp' => $record->created_at]); ?>
                 <?php if ($isNew) : ?> <span class="label label-danger"><?= Yii::t('NotificationModule.views_notificationLayout', 'New'); ?></span><?php endif; ?>
                 <span class="label label-info"><?= Yii::t('TasksModule.base', 'Reminder'); ?></span>
             </div>

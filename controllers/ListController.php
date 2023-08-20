@@ -11,10 +11,10 @@ namespace humhub\modules\tasks\controllers;
 
 use humhub\modules\content\components\ContentContainerControllerAccess;
 use humhub\modules\space\models\Space;
-use humhub\modules\tasks\models\lists\TaskListItemDrop;
-use humhub\modules\tasks\models\lists\TaskListRootItemDrop;
 use humhub\modules\tasks\models\lists\TaskList;
 use humhub\modules\tasks\models\lists\TaskListInterface;
+use humhub\modules\tasks\models\lists\TaskListItemDrop;
+use humhub\modules\tasks\models\lists\TaskListRootItemDrop;
 use humhub\modules\tasks\models\lists\UnsortedTaskList;
 use humhub\modules\tasks\permissions\ManageTasks;
 use humhub\modules\tasks\widgets\lists\CompletedTaskListItem;

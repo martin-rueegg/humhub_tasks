@@ -7,7 +7,6 @@ namespace humhub\modules\tasks\controllers;
 use humhub\modules\content\components\ContentContainerControllerAccess;
 use humhub\modules\space\models\Space;
 use humhub\modules\tasks\models\checklist\CheckForm;
-use humhub\modules\tasks\permissions\ManageTasks;
 use humhub\modules\user\models\User;
 use Yii;
 

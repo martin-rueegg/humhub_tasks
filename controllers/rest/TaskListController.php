@@ -9,8 +9,8 @@ namespace humhub\modules\tasks\controllers\rest;
 
 use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\models\ContentContainer;
-use humhub\modules\rest\components\BaseController;
 use humhub\modules\space\models\Space;
+use humhub\modules\rest\components\BaseController;
 use humhub\modules\tasks\helpers\RestDefinitions;
 use humhub\modules\tasks\models\lists\TaskList;
 use humhub\modules\user\models\User;

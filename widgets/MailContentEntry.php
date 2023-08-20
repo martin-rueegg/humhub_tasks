@@ -10,11 +10,11 @@
 namespace humhub\modules\tasks\widgets;
 
 use humhub\components\ActiveRecord;
+use humhub\components\rendering\Viewable;
+use humhub\components\rendering\ViewPathRenderer;
+use humhub\modules\content\interfaces\ContentOwner;
 use Yii;
 use yii\base\Widget;
-use humhub\components\rendering\ViewPathRenderer;
-use humhub\components\rendering\Viewable;
-use humhub\modules\content\interfaces\ContentOwner;
 
 /**
  * MailContentEntry renders a simple mail content with originator information and an
@@ -26,15 +26,15 @@ class MailContentEntry extends Widget
 {
 
     /**
-     * @var \humhub\modules\user\models\User content originator 
+     * @var \humhub\modules\user\models\User content originator
      */
     public $originator;
-    
+
     /**
-     * @var string|Viewable|ContentOwner content to render 
+     * @var string|Viewable|ContentOwner content to render
      */
     public $content;
-    
+
     /**
      * @var \humhub\modules\space\models\Space space of content (optional)
      */
@@ -44,12 +44,12 @@ class MailContentEntry extends Widget
      * @var ActiveRecord (optional)
      */
     public $source;
-    
-    /** 
-     * @var string content date 
+
+    /**
+     * @var string content date
      */
     public $date;
-    
+
     /**
      * @var boolean if Notification is a Reminder
      */

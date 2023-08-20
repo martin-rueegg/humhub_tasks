@@ -6,11 +6,11 @@
  *
  */
 
-use yii\helpers\Url;
 use humhub\modules\tasks\widgets\MailContentEntry;
-use humhub\widgets\mails\MailHeadline;
-use humhub\widgets\mails\MailButtonList;
 use humhub\widgets\mails\MailButton;
+use humhub\widgets\mails\MailButtonList;
+use humhub\widgets\mails\MailHeadline;
+use yii\helpers\Url;
 
 /**
  * @link https://www.humhub.org/
@@ -27,7 +27,7 @@ use humhub\widgets\mails\MailButton;
 /* @var $originator \humhub\modules\user\models\User */
 /* @var $source yii\db\ActiveRecord */
 /* @var $contentContainer \humhub\modules\content\components\ContentContainerActiveRecord */
-/* @var $space humhub\modules\space\models\Space */
+/* @var $space \humhub\modules\space\models\Space */
 /* @var $record \humhub\modules\notification\models\Notification */
 /* @var $html string */
 /* @var $text string */

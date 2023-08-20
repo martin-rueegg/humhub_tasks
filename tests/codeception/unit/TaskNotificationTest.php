@@ -8,7 +8,6 @@
 
 namespace humhub\modules\tasks\tests\codeception\unit;
 
-use humhub\modules\notification\models\Notification;
 use humhub\modules\space\models\Space;
 use humhub\modules\tasks\models\Task;
 use humhub\modules\tasks\notifications\AddResponsibleNotification;

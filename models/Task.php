@@ -10,15 +10,13 @@ namespace humhub\modules\tasks\models;
 
 use Colors\RandomColor;
 use humhub\modules\content\components\ActiveQueryContent;
+use humhub\modules\content\components\ContentActiveRecord;
+use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\components\ContentContainerPermissionManager;
 use humhub\modules\space\models\Space;
-use humhub\modules\tasks\helpers\TaskUrl;
-use humhub\modules\tasks\permissions\CreateTask;
-use humhub\modules\tasks\permissions\ProcessUnassignedTasks;
-use Yii;
-use yii\db\ActiveQuery;
-use yii\db\Expression;
 use humhub\modules\notification\models\Notification;
+use humhub\modules\search\interfaces\Searchable;
+use humhub\modules\tasks\helpers\TaskUrl;
 use humhub\modules\tasks\models\checklist\TaskCheckList;
 use humhub\modules\tasks\models\checklist\TaskItem;
 use humhub\modules\tasks\models\lists\TaskList;
@@ -26,13 +24,15 @@ use humhub\modules\tasks\models\scheduling\TaskReminder;
 use humhub\modules\tasks\models\scheduling\TaskScheduling;
 use humhub\modules\tasks\models\state\TaskState;
 use humhub\modules\tasks\models\user\TaskUser;
-use humhub\modules\content\components\ContentContainerActiveRecord;
-use humhub\modules\content\components\ContentActiveRecord;
-use humhub\modules\user\models\User;
-use humhub\modules\search\interfaces\Searchable;
-use humhub\widgets\Label;
-use humhub\modules\tasks\widgets\WallEntry;
+use humhub\modules\tasks\permissions\CreateTask;
 use humhub\modules\tasks\permissions\ManageTasks;
+use humhub\modules\tasks\permissions\ProcessUnassignedTasks;
+use humhub\modules\tasks\widgets\WallEntry;
+use humhub\modules\user\models\User;
+use humhub\widgets\Label;
+use Yii;
+use yii\db\ActiveQuery;
+use yii\db\Expression;
 
 
 /**

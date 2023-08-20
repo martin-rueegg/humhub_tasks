@@ -3,18 +3,19 @@
 namespace humhub\modules\tasks;
 
 use humhub\components\console\Application as ConsoleApplication;
-use humhub\modules\tasks\helpers\TaskUrl;
-use humhub\modules\tasks\models\lists\TaskList;
-use humhub\modules\tasks\permissions\ProcessUnassignedTasks;
-use humhub\modules\tasks\permissions\CreateTask;
-use humhub\modules\tasks\permissions\ManageTasks;
-use Yii;
-use humhub\modules\user\models\User;
-use humhub\modules\space\models\Space;
-use humhub\modules\tasks\models\Task;
-use humhub\modules\tasks\models\user\TaskUser;
 use humhub\modules\content\components\ContentContainerActiveRecord;
 use humhub\modules\content\components\ContentContainerModule;
+use humhub\modules\space\models\Space;
+use humhub\modules\tasks\helpers\TaskUrl;
+use humhub\modules\tasks\models\forms\ConfigureContainerForm;
+use humhub\modules\tasks\models\lists\TaskList;
+use humhub\modules\tasks\models\Task;
+use humhub\modules\tasks\models\user\TaskUser;
+use humhub\modules\tasks\permissions\CreateTask;
+use humhub\modules\tasks\permissions\ManageTasks;
+use humhub\modules\tasks\permissions\ProcessUnassignedTasks;
+use humhub\modules\user\models\User;
+use Yii;
 
 class Module extends ContentContainerModule
 {
@@ -55,6 +56,14 @@ class Module extends ContentContainerModule
     /**
      * @inheritdoc
      */
+    public function getContentContainerConfigUrl(ContentContainerActiveRecord $container)
+    {
+        return TaskUrl::toContainerConfig($container);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getConfigUrl()
     {
         return TaskUrl::toConfig();
@@ -66,7 +75,7 @@ class Module extends ContentContainerModule
     public function disable()
     {
         foreach (Task::find()->all() as $task) {
-            $task->delete();
+            $task->hardDelete();
         }
 
         foreach (TaskList::find()->all() as $taskList) {
@@ -87,7 +96,7 @@ class Module extends ContentContainerModule
         parent::disableContentContainer($container);
 
         foreach (Task::find()->contentContainer($container)->all() as $task) {
-            $task->delete();
+            $task->hardDelete();
         }
 
         foreach (TaskList::findByContainer($container)->all() as $taskList) {
@@ -142,5 +151,15 @@ class Module extends ContentContainerModule
     public function getContentContainerName(ContentContainerActiveRecord $container)
     {
         return Yii::t('TasksModule.base', 'Tasks');
+    }
+
+    public function getContentHiddenGlobalDefault(): bool
+    {
+        return $this->settings->get('contentHiddenGlobalDefault', false);
+    }
+
+    public function getContentHiddenDefault(ContentContainerActiveRecord $contentContainer): bool
+    {
+        return (new ConfigureContainerForm(['contentContainer' => $contentContainer]))->contentHiddenDefault;
     }
 }

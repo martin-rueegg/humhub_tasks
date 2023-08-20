@@ -8,10 +8,10 @@
 
 namespace humhub\modules\tasks\permissions;
 
-use humhub\modules\user\models\User;
-use Yii;
 use humhub\libs\BasePermission;
 use humhub\modules\space\models\Space;
+use humhub\modules\user\models\User;
+use Yii;
 
 /**
  * CreateTask Permission

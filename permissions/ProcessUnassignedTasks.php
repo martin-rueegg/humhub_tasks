@@ -9,10 +9,10 @@
 
 namespace humhub\modules\tasks\permissions;
 
-use Yii;
-use humhub\modules\user\models\User;
-use humhub\modules\space\models\Space;
 use humhub\libs\BasePermission;
+use humhub\modules\space\models\Space;
+use humhub\modules\user\models\User;
+use Yii;
 
 /**
  * Manage task permission for a content container

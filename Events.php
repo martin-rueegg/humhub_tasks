@@ -9,21 +9,21 @@
 namespace humhub\modules\tasks;
 
 use humhub\modules\content\components\ContentContainerActiveRecord;
-use humhub\modules\rest\Module as RestModule;
 use humhub\modules\space\models\Space;
+use humhub\modules\notification\models\Notification;
+use humhub\modules\rest\Module as RestModule;
 use humhub\modules\tasks\helpers\TaskListUrl;
 use humhub\modules\tasks\helpers\TaskUrl;
-use humhub\modules\user\models\User;
-use Yii;
-use humhub\modules\notification\models\Notification;
+use humhub\modules\tasks\integration\calendar\TaskCalendar;
 use humhub\modules\tasks\jobs\SendReminder;
-use humhub\modules\tasks\models\SnippetModuleSettings;
-use humhub\modules\tasks\models\Task;
 use humhub\modules\tasks\models\checklist\TaskItem;
 use humhub\modules\tasks\models\scheduling\TaskReminder;
-use humhub\modules\tasks\integration\calendar\TaskCalendar;
-use humhub\modules\tasks\widgets\MyTasks;
+use humhub\modules\tasks\models\SnippetModuleSettings;
+use humhub\modules\tasks\models\Task;
 use humhub\modules\tasks\models\user\TaskUser;
+use humhub\modules\tasks\widgets\MyTasks;
+use humhub\modules\user\models\User;
+use Yii;
 use yii\db\Expression;
 
 
@@ -45,7 +45,7 @@ class Events
             $module = Yii::$app->getModule('tasks');
 
 
-            if (!(int)$module->settings->get('showGlobalMenuItem', 1)) {
+            if (!(int)$module->settings->get('showGlobalMenuItem', 1) || Yii::$app->user->isGuest) {
                 return;
             }
 
@@ -192,7 +192,7 @@ class Events
         foreach (TaskItem::find()->all() as $taskItem) {
             if ($taskItem->task === null) {
                 if ($integrityController->showFix("Deleting task item id " . $taskItem->id . " without existing task!")) {
-                    $taskItem->delete();
+                    $taskItem->hardDelete();
                 }
             }
         }

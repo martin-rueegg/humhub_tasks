@@ -8,14 +8,13 @@
 
 use humhub\libs\Html;
 use humhub\modules\space\models\Space;
+use humhub\modules\space\widgets\Image as SpaceImage;
 use humhub\modules\tasks\helpers\TaskUrl;
 use humhub\modules\tasks\models\Task;
 use humhub\modules\tasks\widgets\TaskBadge;
 use humhub\modules\tasks\widgets\TaskPercentageBar;
 use humhub\modules\tasks\widgets\TaskUserList;
-use humhub\modules\space\widgets\Image as SpaceImage;
 use humhub\modules\user\widgets\Image as UserImage;
-use humhub\widgets\Button;
 
 /* @var $task \humhub\modules\tasks\models\Task */
 /* @var $canEdit boolean */

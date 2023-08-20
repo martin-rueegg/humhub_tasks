@@ -9,10 +9,9 @@
 
 namespace humhub\modules\tasks\notifications;
 
+use humhub\modules\notification\components\BaseNotification;
 use humhub\modules\tasks\models\Task;
 use Yii;
-use humhub\modules\notification\components\BaseNotification;
-use humhub\modules\space\models\Space;
 use yii\helpers\Html;
 
 /**
